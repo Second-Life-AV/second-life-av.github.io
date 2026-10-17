@@ -65,7 +65,7 @@
         '<div class="product-art">' +
           '<div class="product-badges"><span class="grade grade-' + p.grade + '">' + esc(gradeLabel) + '</span>' +
           '<span class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tested</span></div>' +
-          '<svg class="pi" viewBox="0 0 120 90" role="img" aria-label="' + esc(p.brand + " " + p.title) + ' (illustration)"><use href="#' + p.art + '"/></svg>' +
+          '<img class="pi" src="assets/illus/' + p.art + '.svg" width="120" height="90" alt="">' +
         "</div>" +
         '<div class="product-body">' +
           '<span class="product-brand">' + esc(p.brand) + "</span>" +
