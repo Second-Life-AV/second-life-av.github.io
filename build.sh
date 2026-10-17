@@ -28,6 +28,7 @@ for page in src/pages/*.html; do
   nav=$(meta nav "$page")
   group=$(meta group "$page")
   robots=$(meta robots "$page"); robots=${robots:-index, follow}
+  [[ ${PREVIEW_NOINDEX:-false} == true ]] && robots="noindex, nofollow"
   body=$(sed '1,/^-->$/d' "$page")
 
   canonical="$SITE_URL$name"

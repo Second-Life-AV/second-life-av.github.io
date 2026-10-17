@@ -17,3 +17,7 @@ ADDRESS="167–169 Great Portland Street, London W1W 5PF"
 # Legal details shown in the footer (to be confirmed)
 COMPANY_NO="TBC"
 VAT_NO="TBC"
+
+# While true, every page tells search engines not to index it (preview only).
+# Set to false at launch, and delete site/robots.txt.
+PREVIEW_NOINDEX=true

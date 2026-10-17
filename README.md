@@ -35,6 +35,7 @@ serve.ps1                local preview server (Windows)
 | Publish | Push to `main`. GitHub Actions builds the site and deploys it to Pages |
 
 ## Moving to secondlifeav.com
+0. Set `PREVIEW_NOINDEX=false` in `src/config.sh` and delete `site/robots.txt` so search engines can index the site.
 1. Set `SITE_URL="https://secondlifeav.com/"` in `src/config.sh`.
 2. Add `site/CNAME` containing `secondlifeav.com`.
 3. In the repo's Settings → Pages, set the custom domain and enable HTTPS.
