@@ -212,3 +212,46 @@
     });
   });
 })();
+
+/* Home hero: muted, looping YouTube video. The poster stays until playback actually starts. */
+(function () {
+  "use strict";
+  var box = document.querySelector("[data-hero-video]");
+  if (!box || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var id = box.dataset.heroVideo;
+  var btn = box.querySelector(".video-sound");
+  var muted = true;
+  var f = document.createElement("iframe");
+  f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&mute=1&loop=1&playlist=" + id +
+    "&controls=0&rel=0&playsinline=1&modestbranding=1&disablekb=1&iv_load_policy=3&enablejsapi=1&origin=" + encodeURIComponent(location.origin);
+  f.title = box.dataset.title || "Video";
+  f.allow = "autoplay; encrypted-media; picture-in-picture";
+  f.tabIndex = -1;
+
+  function send(func, args) {
+    f.contentWindow && f.contentWindow.postMessage(JSON.stringify({ event: "command", func: func, args: args || [] }), "*");
+  }
+  f.addEventListener("load", function () {
+    // Ask the player to report its state so we know when it's really playing
+    f.contentWindow.postMessage(JSON.stringify({ event: "listening", id: 1, channel: "widget" }), "*");
+  });
+  window.addEventListener("message", function (e) {
+    if (!/youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) return;
+    var d; try { d = JSON.parse(e.data); } catch (err) { return; }
+    var state = d.event === "onStateChange" ? d.info : (d.info && d.info.playerState);
+    var t = d.info && typeof d.info.currentTime === "number" ? d.info.currentTime : 0;
+    if ((state === 1 || t > 0.3) && !box.classList.contains("playing")) {
+      box.classList.add("playing");
+      if (btn) btn.hidden = false;
+    }
+  });
+  if (btn) btn.addEventListener("click", function () {
+    muted = !muted;
+    send(muted ? "mute" : "unMute");
+    if (!muted) send("setVolume", [80]);
+    btn.setAttribute("aria-pressed", String(!muted));
+    btn.querySelector("span").textContent = muted ? "Sound on" : "Sound off";
+    btn.querySelector("use").setAttribute("href", muted ? "#i-sound-off" : "#i-sound-on");
+  });
+  box.appendChild(f);
+})();

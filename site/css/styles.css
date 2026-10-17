@@ -213,7 +213,13 @@ symbol .acc { stroke: var(--green); }
 .hero h1 { color: #fff; }
 .hero .lead { color: rgba(255, 255, 255, .8); margin-bottom: 32px; }
 .hero-media { position: relative; }
-.hero-media img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: var(--radius-lg); }
+.hero-video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; background: var(--ink-2); }
+.hero-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .8s; }
+.hero-video iframe { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; border: 0; transform: translate(-50%, -50%) scale(1.03); pointer-events: none; opacity: 0; transition: opacity .8s; }
+.hero-video.playing iframe { opacity: 1; }
+.hero-video.playing .hero-poster { opacity: 0; }
+.video-sound { position: absolute; top: 12px; right: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: var(--pill); border: 1px solid rgba(255, 255, 255, .35); background: rgba(1, 8, 8, .72); color: #fff; font-size: .82rem; font-weight: 500; cursor: pointer; }
+.video-sound:hover { background: var(--ink-2); border-color: var(--green); }
 .hero-media::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 3px solid var(--green); border-radius: var(--radius-lg); }
 .hero-badge {
   position: absolute; left: -18px; bottom: 26px; display: flex; align-items: center; gap: 12px;
