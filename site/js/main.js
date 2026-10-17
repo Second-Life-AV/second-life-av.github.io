@@ -99,17 +99,10 @@
     products.slice().sort(function (a, b) { return b.added - a.added; }).slice(0, n).forEach(function (p) { rail.appendChild(card(p)); });
   });
 
-  /* Category tiles with live counts */
-  document.querySelectorAll("[data-categories]").forEach(function (wrap) {
-    categories.forEach(function (c) {
-      var count = products.filter(function (p) { return p.cat === c.id; }).length;
-      wrap.appendChild(el(
-        '<a class="cat-tile" href="shop.html?cat=' + c.id + '">' +
-          '<span class="cat-art"><svg class="pi" viewBox="0 0 120 90" aria-hidden="true"><use href="#' + c.art + '"/></svg></span>' +
-          "<strong>" + esc(c.name) + "</strong><span>" + count + (count === 1 ? " item" : " items") + " in stock</span>" +
-        "</a>"
-      ));
-    });
+  /* Category tiles are static HTML; fill in live stock counts */
+  document.querySelectorAll("[data-cat-count]").forEach(function (span) {
+    var count = products.filter(function (p) { return p.cat === span.dataset.catCount; }).length;
+    if (count) span.textContent = count + (count === 1 ? " item" : " items") + " in stock";
   });
 
   /* Brand counts on the brands page */
@@ -252,7 +245,7 @@
     f.contentWindow.postMessage(JSON.stringify({ event: "listening", id: 1, channel: "widget" }), "*");
   });
   window.addEventListener("message", function (e) {
-    if (!/youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) return;
+    if (!/^https:\/\/www\.youtube(-nocookie)?\.com$/.test(e.origin)) return;
     var d; try { d = JSON.parse(e.data); } catch (err) { return; }
     var state = d.event === "onStateChange" ? d.info : (d.info && d.info.playerState);
     var t = d.info && typeof d.info.currentTime === "number" ? d.info.currentTime : 0;

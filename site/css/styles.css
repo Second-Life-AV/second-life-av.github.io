@@ -220,10 +220,11 @@ symbol .acc { stroke: var(--green); }
 .hero-video.playing .hero-poster { opacity: 0; }
 .video-sound { position: absolute; top: 12px; right: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: var(--pill); border: 1px solid rgba(255, 255, 255, .35); background: rgba(1, 8, 8, .72); color: #fff; font-size: .82rem; font-weight: 500; cursor: pointer; }
 .video-sound:hover { background: var(--ink-2); border-color: var(--green); }
-.hero-media::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 3px solid var(--green); border-radius: var(--radius-lg); }
+.hero-frame { position: relative; }
+.hero-frame::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 3px solid var(--green); border-radius: var(--radius-lg); }
 .hero-badge {
-  position: absolute; left: -18px; bottom: 26px; display: flex; align-items: center; gap: 12px;
-  background: #fff; color: var(--ink); border-radius: var(--radius); padding: 14px 18px; box-shadow: var(--shadow-lg); max-width: 270px;
+  position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px;
+  background: #fff; color: var(--ink); border-radius: var(--radius); padding: 14px 18px; box-shadow: var(--shadow-lg);
 }
 .hero-badge .i { color: var(--green-ink); }
 .hero-badge strong { display: block; font-weight: 600; line-height: 1.2; }
@@ -540,7 +541,7 @@ tr:last-child td { border-bottom: 0; }
   .g-4, .steps.g-4, .stats { grid-template-columns: 1fr; }
   .g-6 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-badge { left: -8px; bottom: 14px; padding: 10px 14px; }
+  .hero-badge { margin-top: 26px; padding: 10px 14px; }
   .products-grid { grid-template-columns: 1fr; }
   .btn-row .btn { flex: 1 1 auto; }
   .section-head { margin-bottom: 28px; }
@@ -582,4 +583,3 @@ a.wsav:hover, .dark a.wsav:hover, .site-footer a.wsav:hover { color: var(--ink);
 .video-start:hover span { transform: scale(1.06); }
 .hero-video.playing .video-start { display: none; }
 .hero-video.interactive iframe { pointer-events: auto; }
-.hero-video.interactive ~ .hero-badge { display: none; }
