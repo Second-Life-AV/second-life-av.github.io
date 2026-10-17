@@ -1,0 +1,9 @@
+# Internal: keep off GitHub
+CLAUDE.md
+research/
+content/
+assets/brand/WSAV-logo.svg
+assets/brand/Graphic-512px-WAV-Favicon.svg
+# Reference material and originals (published copies live in site/assets)
+/assets/
+/.claude/

@@ -1,0 +1,60 @@
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-bar" role="note">
+  <div class="wrap"><strong>Preview site.</strong> Sample stock and prices are taken from our eBay store. Online checkout is coming soon.</div>
+</div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="lockup" href="index.html" aria-label="Second Life AV home">
+      <img class="lockup-mark" src="assets/brand/secondlife-mark.webp" width="140" height="140" alt="">
+      <span class="lockup-words"><span class="lockup-top">SECONDLIFE</span><span class="lockup-sub">AUDIO VISUAL</span></span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <svg class="i" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="has-sub"{{group:shop}}>
+          <button class="nav-link" aria-expanded="false">Shop <svg class="i i-sm" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <ul class="sub">
+            <li><a href="shop.html"{{nav:shop}}>All stock</a></li>
+            <li><a href="brands.html"{{nav:brands}}>Shop by brand</a></li>
+            <li><a href="room-bundles.html"{{nav:bundles}}>Room bundles</a></li>
+          </ul>
+        </li>
+        <li class="has-sub"{{group:sell}}>
+          <button class="nav-link" aria-expanded="false">Sell to us <svg class="i i-sm" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <ul class="sub">
+            <li><a href="buy-back.html"{{nav:buyback}}>Buy-back &amp; trade-in</a></li>
+            <li><a href="decommissioning.html"{{nav:decom}}>Decommissioning &amp; ITAD</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="trade.html"{{nav:trade}}>Trade accounts</a></li>
+        <li class="has-sub"{{group:why}}>
+          <button class="nav-link" aria-expanded="false">Why refurbished <svg class="i i-sm" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <ul class="sub">
+            <li><a href="grading.html"{{nav:grading}}>Grading &amp; testing</a></li>
+            <li><a href="warranty.html"{{nav:warranty}}>Warranty &amp; returns</a></li>
+            <li><a href="sustainability.html"{{nav:sustainability}}>Sustainability</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="guides.html"{{nav:guides}}>Guides</a></li>
+        <li class="has-sub"{{group:company}}>
+          <button class="nav-link" aria-expanded="false">Company <svg class="i i-sm" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <ul class="sub">
+            <li><a href="about.html"{{nav:about}}>About us</a></li>
+            <li><a href="faq.html"{{nav:faq}}>FAQ</a></li>
+            <li><a href="contact.html"{{nav:contact}}>Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-ghost-dark btn-sm" href="buy-back.html">Sell your AV</a>
+        <a class="btn btn-primary btn-sm" href="shop.html">Shop stock</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">

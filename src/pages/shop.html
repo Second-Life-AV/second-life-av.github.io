@@ -1,0 +1,63 @@
+<!--
+title: Shop Refurbished AV Equipment | Second Life AV
+description: Browse tested, graded refurbished AV: Crestron control, Poly and Cisco video conferencing, Biamp audio DSP, room booking panels and more. 12-month warranty and VAT invoices.
+nav: shop
+group: shop
+-->
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Shop</nav>
+    <h1 id="shop-title">Refurbished AV equipment</h1>
+    <p class="lead">Every unit is tested to manufacturer spec, graded A, B or C for appearance, and covered by a 12-month warranty. Business buyers get VAT invoices as standard.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="shop-layout">
+      <form class="filters" id="filters" aria-label="Filter products">
+        <h2><svg class="i" aria-hidden="true"><use href="#i-filter"/></svg>Filter</h2>
+        <div class="filter-group"><fieldset><legend>Category</legend><div id="f-cat"></div></fieldset></div>
+        <div class="filter-group"><fieldset><legend>Brand</legend><div id="f-brand"></div></fieldset></div>
+        <div class="filter-group"><fieldset><legend>Condition</legend><div id="f-grade"></div></fieldset></div>
+        <div class="filter-group">
+          <button type="button" class="btn btn-ghost-dark btn-sm" id="clear-filters">Clear filters</button>
+        </div>
+        <p class="demo-note">Not sure what a grade means? <a href="grading.html">See our grading standard</a>.</p>
+      </form>
+
+      <div>
+        <div class="shop-toolbar">
+          <p><strong id="result-count">0 items</strong> · prices from our current stock</p>
+          <div class="toolbar-right">
+            <button type="button" class="btn btn-ghost-dark btn-sm filters-toggle" aria-controls="filters" aria-expanded="false"><svg class="i i-sm" aria-hidden="true"><use href="#i-filter"/></svg>Filters</button>
+            <div class="vat-toggle" role="group" aria-label="Show prices">
+              <button type="button" data-vat="inc" aria-pressed="true">Inc VAT</button>
+              <button type="button" data-vat="ex" aria-pressed="false">Ex VAT</button>
+            </div>
+            <label class="sr-only" for="sort">Sort by</label>
+            <select id="sort">
+              <option value="new">Newest first</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid" id="product-grid" aria-live="polite"></div>
+        <div class="empty" id="empty" hidden>No items match those filters. <a href="contact.html">Tell us what you're looking for</a> and we'll source it.</div>
+        <noscript><p class="empty">Our product list needs JavaScript. You can also browse all stock on <a href="{{EBAY_URL}}">our eBay store</a>.</p></noscript>
+        <p class="demo-note">Preview: stock and prices are taken from our eBay store. Grades are illustrative. "Buy now" will open the Second Life AV Shopify store once it launches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="grid g-3">
+      <div class="card"><div class="card-icon"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg></div><h3>Buying for several rooms?</h3><p class="muted">Trade accounts get tiered pricing, PO terms and bulk quotes.</p><a class="link-arrow" href="trade.html">Open a trade account <svg class="i i-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="card"><div class="card-icon"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></div><h3>Can't see what you need?</h3><p class="muted">New stock arrives from decommissions every week. Tell us the model and we'll look out for it.</p><a class="link-arrow" href="contact.html">Request a part <svg class="i i-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="card"><div class="card-icon"><svg class="i" aria-hidden="true"><use href="#i-wrench"/></svg></div><h3>Need it installed?</h3><p class="muted">Our partner Workspace AV can design, install and support your rooms.</p><a class="link-arrow" href="https://www.workspaceav.com/av-services/installation/" target="_blank" rel="noopener">Ask about installation <svg class="i i-sm" aria-hidden="true"><use href="#i-arrow-out"/></svg></a></div>
+    </div>
+  </div>
+</section>
