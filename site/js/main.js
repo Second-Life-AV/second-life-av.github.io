@@ -217,7 +217,23 @@
 (function () {
   "use strict";
   var box = document.querySelector("[data-hero-video]");
-  if (!box || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!box) return;
+  var startBtn = box.querySelector(".video-start");
+  // Clicking play (autoplay blocked, or reduced motion) loads the full player with sound and controls
+  if (startBtn) startBtn.addEventListener("click", function () {
+    var old = box.querySelector("iframe");
+    if (old) old.remove();
+    var p = document.createElement("iframe");
+    p.src = "https://www.youtube-nocookie.com/embed/" + box.dataset.heroVideo + "?autoplay=1&rel=0&playsinline=1&modestbranding=1";
+    p.title = box.dataset.title || "Video";
+    p.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    p.allowFullscreen = true;
+    box.appendChild(p);
+    box.classList.add("playing", "interactive");
+    var s = box.querySelector(".video-sound");
+    if (s) s.remove();
+  });
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   var id = box.dataset.heroVideo;
   var btn = box.querySelector(".video-sound");
   var muted = true;

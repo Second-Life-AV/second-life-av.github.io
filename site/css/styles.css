@@ -573,3 +573,13 @@ tr:last-child td { border-bottom: 0; }
 a.wsav, .dark a.wsav, .site-footer a.wsav { color: inherit; font-weight: 500; text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-thickness .15s, color .15s; }
 a.wsav:hover, .dark a.wsav:hover, .site-footer a.wsav:hover { color: var(--ink); text-decoration-thickness: 3px; }
 .dark a.wsav:hover, .hero a.wsav:hover, .page-hero a.wsav:hover, .site-footer a.wsav:hover { color: #fff; }
+
+/* Hero video play button: visible until the muted autoplay starts, or if autoplay is blocked */
+.video-start { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; border: 0; padding: 0; cursor: pointer; background: linear-gradient(180deg, rgba(1, 8, 8, .05), rgba(1, 8, 8, .45)); color: #fff; }
+.video-start span { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; background: var(--green); color: var(--ink); box-shadow: var(--shadow-lg); transition: transform .15s; }
+.video-start .i { width: 30px; height: 30px; fill: currentColor; margin-left: 4px; }
+.video-start em { font-style: normal; font-weight: 500; font-size: .95rem; text-shadow: 0 1px 6px rgba(0, 0, 0, .5); }
+.video-start:hover span { transform: scale(1.06); }
+.hero-video.playing .video-start { display: none; }
+.hero-video.interactive iframe { pointer-events: auto; }
+.hero-video.interactive ~ .hero-badge { display: none; }
