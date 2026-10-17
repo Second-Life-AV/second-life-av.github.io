@@ -46,6 +46,8 @@ $footer_html"
   out=${out//'{{SITE_URL}}'/"$SITE_URL"}
   out=${out//'{{SHOPIFY_URL}}'/"$SHOPIFY_URL"}
   out=${out//'{{EBAY_URL}}'/"$EBAY_URL"}
+  out=${out//'{{INSTAGRAM_URL}}'/"$INSTAGRAM_URL"}
+  out=${out//'{{INSTAGRAM_HANDLE}}'/"$INSTAGRAM_HANDLE"}
   out=${out//'{{PHONE}}'/"$PHONE"}
   out=${out//'{{PHONE_TEL}}'/"$PHONE_TEL"}
   out=${out//'{{EMAIL}}'/"$EMAIL"}

@@ -7,6 +7,8 @@ SITE_URL="https://second-life-av.github.io/"
 # Stores
 SHOPIFY_URL="https://www.shopify.com/"            # placeholder until the Shopify store exists
 EBAY_URL="https://www.ebay.co.uk/usr/secondlifeav"
+INSTAGRAM_URL="https://www.instagram.com/secondlifeav/"
+INSTAGRAM_HANDLE="secondlifeav"
 
 # Contact (currently Workspace AV's London sales line and inbox; confirm before going live)
 PHONE="+44 (0)20 3151 2120"
