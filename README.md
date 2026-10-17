@@ -68,6 +68,23 @@ Test locally against the demo shop without changing the live settings: `SHOP_SOU
 
 Newest products appear first and in the home page "Just in" section. Products without a category still appear under All stock.
 
+## Adding a CMS (for non-technical editing)
+Products are already managed in Shopify, so a CMS is only needed if staff want to edit page text, publish guides or blog posts, or change contact details without a developer.
+
+**Recommended: [Pages CMS](https://pagescms.org)**. It is free, works directly with a GitHub repository and needs no server or database. Editors log in with a free GitHub account, edit in a simple web interface and click Save. Each save is a commit, and the existing GitHub Actions workflow rebuilds and publishes the site in about a minute.
+
+Suggested setup for a web developer (roughly a day's work):
+1. Move the content staff will realistically change out of the HTML into data files, for example:
+   - `content/guides/*.md` for guide and blog posts (front matter: title, date, summary, image)
+   - `content/site.yml` for contact details and the eBay, Shopify and Instagram links (these currently live in `src/config.sh`)
+   - `content/faq.yml` for the FAQ questions and answers
+   - `content/buyback.yml` for the buy-back credit bands
+2. Extend `build.sh` (or swap it for a small static site generator such as Eleventy) to read those files when building the pages. The build already runs in GitHub Actions, where Node and other tools are available.
+3. Add a `.pages.yml` file at the repository root describing those collections and fields (see the Pages CMS docs), then connect the repository at app.pagescms.org.
+4. Give each editor access to the repository (Write role) so they can log in to the CMS.
+
+Alternatives: Decap CMS (needs a GitHub OAuth helper on static hosting) or TinaCMS (hosted; free tier available).
+
 ## Still to do before launch
 - **Shopify:** create the store, then follow "Connecting the Shopify store" above.
 - **Forms:** connect them to a form service such as Formspree, or to Shopify forms. Right now they show a preview message.
