@@ -41,8 +41,35 @@ serve.ps1                local preview server (Windows)
 3. In the repo's Settings → Pages, set the custom domain and enable HTTPS.
 4. Point the domain's DNS at GitHub Pages: A records to 185.199.108–111.153, or a CNAME for `www`.
 
+## Connecting the Shopify store
+The site can show products live from Shopify, in its own design, with checkout handled by Shopify. It is built and tested against Shopify's public demo shop; switching to the real store takes two settings.
+
+1. In Shopify admin, add the free **Headless** sales channel (Shopify App Store), create a storefront and copy its **public access token**. The public token is designed to be used in websites.
+2. In the Headless storefront's permissions, allow reading products, product tags and inventory, and allow cart / checkout.
+3. In `src/config.sh` set:
+   - `SHOP_SOURCE="shopify"`
+   - `SHOPIFY_DOMAIN="<store>.myshopify.com"`
+   - `SHOPIFY_STOREFRONT_TOKEN="<public token>"`
+   - `SHOPIFY_URL` to the store's web address (used as a fallback link)
+4. Run `bash build.sh`, preview locally, then push.
+
+Test locally against the demo shop without changing the live settings: `SHOP_SOURCE=shopify bash build.sh` (then run `bash build.sh` again before committing).
+
+### How staff set up products in Shopify
+| Site field | Where it comes from in Shopify |
+|---|---|
+| Brand | **Vendor** |
+| Title, photo, price | Product title, first image, price (enter prices including VAT) |
+| Category | **Product type** set to one of: Video conferencing, Displays & LED, Audio & DSP, Control & switching, Room booking, Mounts, cabling & docks (or a tag such as `cat:vc`) |
+| Grade badge | A tag: `Grade A`, `Grade B`, `Grade C` or `New` |
+| Part number | The variant **SKU** |
+| Spec line | The first sentence of the description |
+| Sold out | Automatic when stock reaches zero |
+
+Newest products appear first and in the home page "Just in" section. Products without a category still appear under All stock.
+
 ## Still to do before launch
-- **Shopify:** replace the placeholder link with the live store. Shopify will then hold real products, stock, checkout and trade pricing.
+- **Shopify:** create the store, then follow "Connecting the Shopify store" above.
 - **Forms:** connect them to a form service such as Formspree, or to Shopify forms. Right now they show a preview message.
 - **Product photos:** use real photos for each listing; the line illustrations are stand-ins.
 - **Policies:** confirm grades, warranty terms, delivery prices, returns and the extended warranty.

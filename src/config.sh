@@ -21,3 +21,15 @@ VAT_NO="TBC"
 # While true, every page tells search engines not to index it (preview only).
 # Set to false at launch, and delete site/robots.txt.
 PREVIEW_NOINDEX=true
+
+# Where product listings come from:
+#   "sample"  = the sample stock in site/js/products.js (used for the preview)
+#   "shopify" = live products from the Shopify store below
+SHOP_SOURCE="${SHOP_SOURCE:-sample}"
+
+# Shopify store connection (Storefront API). "audio.mock.shop" is Shopify's public demo shop for testing.
+# For the real store: SHOPIFY_DOMAIN="their-store.myshopify.com" and the public Storefront token
+# from Shopify's free "Headless" app. The token is designed to be public, so it's safe in the website.
+SHOPIFY_DOMAIN="${SHOPIFY_DOMAIN:-audio.mock.shop}"
+SHOPIFY_STOREFRONT_TOKEN="${SHOPIFY_STOREFRONT_TOKEN:-}"
+SHOPIFY_API_VERSION="2025-07"
